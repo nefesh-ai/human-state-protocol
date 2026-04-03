@@ -1,0 +1,20 @@
+{
+  "hsp_version": "1.0",
+  "session_id": "example-session-001",
+  "timestamp": "2026-04-01T12:00:00Z",
+  "state": "stressed",
+  "stress_score": 68,
+  "confidence": 0.87,
+  "signals_received": ["cardiovascular", "vocal", "textual"],
+  "suggested_action": "de-escalate_and_shorten",
+  "action_reason": "elevated heart rate + tense vocal tone + negative sentiment",
+  "recommendation": "Max 2 sentences. Direct, factual, no ambiguity.",
+  "adaptation_effectiveness": {
+    "previous_action": "simplify_and_focus",
+    "previous_score": 52,
+    "current_score": 68,
+    "stress_delta": 16,
+    "effective": false
+  },
+  "disclaimer": "Not a medical device. For contextual AI adaptation only."
+}

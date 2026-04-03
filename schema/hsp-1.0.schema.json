@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nefesh.ai/schemas/hsp-1.0.schema.json",
+  "title": "Human State Protocol v1.0",
+  "description": "Canonical JSON schema for human physiological state output. Defines the standard format for exchanging human state between AI systems.",
+  "type": "object",
+  "required": ["hsp_version", "session_id", "timestamp", "state", "stress_score", "confidence"],
+  "properties": {
+    "hsp_version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "Protocol version"
+    },
+    "session_id": {
+      "type": "string",
+      "maxLength": 256,
+      "description": "Client-generated session identifier"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of this reading"
+    },
+    "state": {
+      "type": "string",
+      "enum": ["calm", "relaxed", "focused", "stressed", "acute_stress"],
+      "description": "Human-readable state label"
+    },
+    "stress_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Unified stress score (0 = calm, 100 = acute stress)"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Signal quality and device trust (0.0 = no confidence, 1.0 = clinical-grade)"
+    },
+    "signals_received": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["cardiovascular", "vocal", "visual", "textual", "metabolic", "neural", "electrodermal", "respiratory", "movement", "sleep"]
+      },
+      "description": "Signal categories present in this reading"
+    },
+    "suggested_action": {
+      "type": "string",
+      "enum": ["maintain_engagement", "simplify_and_focus", "de-escalate_and_shorten", "pause_and_ground"],
+      "description": "Machine-readable behavioral directive for the AI agent"
+    },
+    "action_reason": {
+      "type": "string",
+      "description": "Human-readable explanation of why this action was suggested"
+    },
+    "recommendation": {
+      "type": "string",
+      "description": "Plain-English behavioral instruction for LLM system prompts"
+    },
+    "adaptation_effectiveness": {
+      "type": "object",
+      "description": "Closed-loop feedback showing whether the previous action reduced stress",
+      "properties": {
+        "previous_action": { "type": "string" },
+        "previous_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "current_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "stress_delta": { "type": "integer" },
+        "effective": { "type": "boolean" }
+      }
+    },
+    "topics_detected": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Psychological topics extracted from conversation context"
+    },
+    "active_triggers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Topics currently causing elevated stress"
+    },
+    "resolved_triggers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Topics where stress has decreased below threshold"
+    },
+    "disclaimer": {
+      "type": "string",
+      "description": "Regulatory disclaimer (not a medical device)"
+    }
+  },
+  "additionalProperties": false
+}

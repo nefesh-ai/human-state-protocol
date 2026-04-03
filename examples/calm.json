@@ -1,0 +1,13 @@
+{
+  "hsp_version": "1.0",
+  "session_id": "example-session-002",
+  "timestamp": "2026-04-01T12:05:00Z",
+  "state": "calm",
+  "stress_score": 12,
+  "confidence": 0.92,
+  "signals_received": ["cardiovascular"],
+  "suggested_action": "maintain_engagement",
+  "action_reason": "heart rate signal",
+  "recommendation": "Full complexity permitted. Challenge assumptions, push deeper.",
+  "disclaimer": "Not a medical device. For contextual AI adaptation only."
+}
