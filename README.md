@@ -92,6 +92,7 @@ See [`examples/`](examples/) for more.
 | [Nefesh API](https://nefesh.ai) | REST (`/v1/ingest`, `/v1/state`) | Production |
 | [Nefesh MCP Server](https://github.com/nefesh-ai/nefesh-mcp-server) | MCP (Streamable HTTP) | Production |
 | [Nefesh A2A Agent](https://github.com/nefesh-ai/nefesh-a2a) | A2A v1.0 (JSON-RPC) | Production |
+| [Nefesh Gateway](https://github.com/nefesh-ai/nefesh-gateway) | OpenAI-compatible LLM proxy | Production |
 
 ## Design principles
 
