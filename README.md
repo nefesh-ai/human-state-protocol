@@ -2,6 +2,8 @@
 
 An open specification for exchanging human physiological state between AI systems.
 
+**Docs:** [nefesh.ai/docs/hsp](https://nefesh.ai/docs/hsp) · **Reference Implementation:** [nefesh.ai](https://nefesh.ai) · **License:** Apache 2.0
+
 ## What is HSP?
 
 The Human State Protocol defines a standard JSON format for representing human physiological and behavioral state in a way that any AI system can consume. It answers one question: **How is the human doing right now?**
